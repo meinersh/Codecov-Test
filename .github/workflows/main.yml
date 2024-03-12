@@ -36,4 +36,10 @@ jobs:
         with:
           unityVersion: 2022.2.16f1
           testMode: playmode
-          customParameters: -debugCodeOptimization -enableCodeCoverage -coverageResultsPath ./coverage-results -coverageOptions generateAdditionalMetrics       
+          customParameters: -debugCodeOptimization -enableCodeCoverage -coverageResultsPath ./coverage-results -coverageOptions generateAdditionalMetrics 
+      - name: Upload XML report to Codecov
+     uses: codecov/codecov-action@v2
+     with:
+       name: PlayMode
+       flags: automated
+       files: coverage-results/**/*.xml
