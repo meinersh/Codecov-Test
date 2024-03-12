@@ -34,9 +34,7 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-	  # Replace with the Unity version your project should be tested on.
-          # Minimum version: 2019.3
-          unityVersion: 2020.3.13f1
+          unityVersion: 2022.2.16f1
           testMode: playmode
           customParameters: -debugCodeOptimization -enableCodeCoverage -coverageResultsPath ./coverage-results -coverageOptions generateAdditionalMetrics
       
