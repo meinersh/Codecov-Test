@@ -1,22 +1,23 @@
 name: CI
 
-on:
+on: 
   # Replace with your main branch if needed
   push:
     branches:
       - main
-  pull_request:
+  pull_request: 
     branches:
       - main
 
 jobs:
 
   runTests:
-  
+
     name: Run Tests
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -33,9 +34,11 @@ jobs:
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          unityVersion: 2022.2.16f1
+	  # Replace with the Unity version your project should be tested on.
+          # Minimum version: 2019.3
+          unityVersion: 2020.3.13f1
           testMode: playmode
-          customParameters: -debugCodeOptimization -enableCodeCoverage -coverageResultsPath ./coverage-results -coverageOptions generateAdditionalMetrics 
+          customParameters: -debugCodeOptimization -enableCodeCoverage -coverageResultsPath ./coverage-results -coverageOptions generateAdditionalMetrics
       
       - name: Upload XML report to Codecov
      uses: codecov/codecov-action@v2
