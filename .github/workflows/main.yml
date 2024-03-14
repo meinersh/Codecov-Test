@@ -10,7 +10,6 @@ on:
       - main
 
 jobs:
-
   runTests:
     name: Run Tests
     runs-on: ubuntu-latest
