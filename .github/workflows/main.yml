@@ -12,7 +12,6 @@ on:
 jobs:
 
   runTests:
-  
     name: Run Tests
     runs-on: ubuntu-latest
 
@@ -38,9 +37,10 @@ jobs:
           testMode: playmode
           customParameters: -debugCodeOptimization -enableCodeCoverage -coverageResultsPath ./coverage-results -coverageOptions generateAdditionalMetrics
       
-      - name: Upload XML report to Codecov
+   - name: Upload XML report to Codecov
      uses: codecov/codecov-action@v2
      with:
        name: PlayMode
        flags: automated
+       token: ${{ secrets.CODECOV_TOKEN }}
        files: coverage-results/**/*.xml
